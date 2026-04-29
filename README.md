@@ -185,8 +185,6 @@ sudo ./ntlfy-deployer.sh
 sudo apt update && sudo apt install -y git && git clone https://github.com/LoaTary/NtLfyIraniCore-Deployer.git && cd NtLfyIraniCore-Deployer && chmod +x ntlfy-deployer.sh && sudo ./ntlfy-deployer.sh
 ```
 
-اگر نام ریپازیتوری شما متفاوت است، آدرس `git clone` را با آدرس ریپازیتوری خودتان جایگزین کنید.
-
 ---
 
 ## ⚙️ مقادیر موردنیاز هنگام اجرا
