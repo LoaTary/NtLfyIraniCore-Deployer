@@ -62,7 +62,7 @@ sudo ./ntlfy-deployer.sh
 نمونه:
 
 ```text
-Upstream Domain: https://titus2.babanaghash.ir:443
+Upstream Domain: https://app.titus.ir:443
 Access Path: /titus
 Timeout MS: 120000
 Netlify Token: nfp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
@@ -84,7 +84,7 @@ Admin URL    : https://app.netlify.com/projects/titus-relay-xxxxxxxx
 ```text
 https://titus-relay-xxxxxxxx.netlify.app/titus
 ↓
-https://titus2.babanaghash.ir:443/titus
+https://app.titus.ir:443/titus
 ```
 
 ---
