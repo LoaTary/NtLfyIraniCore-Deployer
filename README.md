@@ -2,14 +2,14 @@
 
 # 🚀 NtLfyIraniCore Deployer
 
-### دپلوی خودکار و تمیز NtLfyIraniCore روی Netlify
+### دپلوی تمیز، سریع و دستی NtLfyIraniCore روی Netlify
 
 <br>
 
 ![Bash](https://img.shields.io/badge/Bash-Script-121011?style=for-the-badge&logo=gnubash&logoColor=white)
-![Ubuntu](https://img.shields.io/badge/Ubuntu-Supported-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
+![Ubuntu](https://img.shields.io/badge/Ubuntu-Ready-E95420?style=for-the-badge&logo=ubuntu&logoColor=white)
 ![Netlify](https://img.shields.io/badge/Netlify-Edge%20Relay-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
-![Status](https://img.shields.io/badge/Manual%20Deploy-Ready-22C55E?style=for-the-badge)
+![Deploy](https://img.shields.io/badge/Manual%20Deploy-Automated-22C55E?style=for-the-badge)
 
 <br>
 
@@ -21,11 +21,11 @@
 
 ## 📌 معرفی
 
-**NtLfyIraniCore Deployer** یک اسکریپت سبک، مرتب و خودکار برای دپلوی دستی پروژه‌ی **NtLfyIraniCore** روی Netlify است.
+**NtLfyIraniCore Deployer** یک اسکریپت خودکار برای دپلوی دستی پروژه‌ی **NtLfyIraniCore** روی Netlify است.
 
-با این ابزار نیازی نیست اکانت GitHub خود را به Netlify متصل کنید. اسکریپت سورس اصلی را از GitHub دریافت می‌کند، فایل Edge Function را آماده‌سازی می‌کند، سایت Netlify می‌سازد، متغیرهای لازم را ثبت می‌کند و در پایان دپلوی Production را انجام می‌دهد.
+این ابزار برای زمانی مناسب است که می‌خواهید پروژه را روی Netlify اجرا کنید، اما نمی‌خواهید اکانت GitHub خود را به Netlify متصل کنید. اسکریپت سورس اصلی را دریافت می‌کند، تنظیمات Relay را آماده می‌کند، سایت Netlify می‌سازد، متغیرهای لازم را ثبت می‌کند و در نهایت دپلوی Production را انجام می‌دهد.
 
-این ابزار فقط ۴ مقدار از شما می‌گیرد:
+اسکریپت فقط ۴ مقدار از شما می‌گیرد:
 
 ```text
 Upstream Domain
@@ -44,11 +44,11 @@ Netlify Token
 https://github.com/B3hnamR/NtLfyIraniCore.git
 ```
 
-سورس اصلی هنگام اجرای اسکریپت به‌صورت خودکار از این مخزن دریافت می‌شود.
+سورس اصلی هنگام اجرای اسکریپت به‌صورت خودکار از همین مخزن دریافت می‌شود.
 
 ---
 
-## ✨ امکانات
+## ✨ قابلیت‌ها
 
 - ⚡ دپلوی دستی روی Netlify بدون اتصال GitHub به Netlify
 - 🌐 ساخت خودکار سایت Netlify با نام تصادفی
@@ -57,16 +57,16 @@ https://github.com/B3hnamR/NtLfyIraniCore.git
 - 🔧 تنظیم خودکار `UPSTREAM_BASE`
 - 🛣️ تنظیم خودکار `ACCESS_PATH`
 - ⏱️ تنظیم خودکار `REQUEST_TIMEOUT_MS`
-- 🛡️ تزریق fallback داخل Edge Function برای جلوگیری از خطای ENV
+- 🛡️ تزریق fallback داخل Edge Function برای کاهش خطای ENV
 - 🐧 نصب خودکار ابزارهای لازم روی Ubuntu
 - 🚀 دپلوی Production روی Netlify
 - 🔍 تست لینک نهایی بعد از دپلوی
-- 📄 ذخیره لاگ‌های مرتب و قابل بررسی
-- 🧼 خروجی تمیز و مناسب استفاده شخصی یا پروژه‌ای
+- 📄 لاگ‌گیری مرتب و قابل بررسی
+- 🧼 خروجی ساده، تمیز و قابل استفاده برای پروژه‌های شخصی
 
 ---
 
-## 🧠 نحوه کار
+## 🧠 نحوه عملکرد
 
 جریان کلی درخواست به این شکل است:
 
@@ -80,7 +80,7 @@ Upstream Server
 Response
 ```
 
-نمونه با دامنه‌ی فرضی:
+نمونه با دامنه‌ی `app.titus.ir`:
 
 ```text
 https://titus-relay-xxxxxxxx.netlify.app/titus
@@ -88,38 +88,28 @@ https://titus-relay-xxxxxxxx.netlify.app/titus
 https://app.titus.ir:443/titus
 ```
 
-یعنی درخواست وارد دامنه Netlify می‌شود و سپس با همان مسیر به سرور اصلی منتقل می‌شود.
-
----
-
-## 📁 ساختار پیشنهادی ریپازیتوری
-
-```text
-NtLfyIraniCore-Deployer
-├── ntlfy-deployer.sh
-└── README.md
-```
+یعنی درخواست ابتدا وارد دامنه Netlify می‌شود و سپس با همان مسیر به سرور اصلی منتقل می‌شود.
 
 ---
 
 ## 📋 پیش‌نیازها
 
-برای اجرا به موارد زیر نیاز دارید:
+برای اجرای اسکریپت به این موارد نیاز دارید:
 
-- 🐧 یک سرور Ubuntu
+- 🐧 سرور Ubuntu
 - 🔐 دسترسی root یا sudo
 - 🌍 اینترنت برای نصب پکیج‌ها
-- 🧾 یک Netlify Personal Access Token
+- 🧾 Netlify Personal Access Token
 
 ---
 
-## 🔑 آموزش ساخت Netlify Token
+## 🔑 دریافت Netlify Token
 
-برای اینکه اسکریپت بتواند سایت Netlify بسازد، ENVها را تنظیم کند و دپلوی Production انجام دهد، باید یک **Personal Access Token** بسازید.
+برای اینکه اسکریپت بتواند سایت بسازد، متغیرها را ثبت کند و دپلوی Production انجام دهد، باید یک **Personal Access Token** از Netlify دریافت کنید.
 
 ### مسیر ساخت توکن
 
-وارد Netlify شوید و مسیر زیر را دنبال کنید:
+وارد Netlify شوید و این مسیر را دنبال کنید:
 
 ```text
 User settings
@@ -131,16 +121,16 @@ Personal access tokens
 New access token
 ```
 
-### مراحل ساخت
+### مراحل دریافت توکن
 
-1. وارد پنل Netlify شوید.
+1. وارد داشبورد Netlify شوید.
 2. روی تصویر پروفایل یا نام کاربری کلیک کنید.
 3. وارد بخش **User settings** شوید.
-4. از منوی کناری وارد بخش **Applications** شوید.
-5. در قسمت **Personal access tokens** روی **New access token** بزنید.
+4. از منوی کناری گزینه **Applications** را باز کنید.
+5. در بخش **Personal access tokens** روی **New access token** بزنید.
 6. برای توکن یک نام وارد کنید.
 7. روی **Generate token** بزنید.
-8. توکن ساخته‌شده را کپی کنید.
+8. مقدار توکن را کپی کنید و هنگام اجرای اسکریپت وارد کنید.
 
 نام پیشنهادی برای توکن:
 
@@ -154,13 +144,11 @@ NtLfyIraniCore Deployer
 nfp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 ```
 
-> توکن را داخل GitHub، فایل README، لاگ عمومی یا چت عمومی قرار ندهید. اگر توکن لو رفت، آن را از Netlify حذف یا Regenerate کنید.
-
 ---
 
 ## 🐧 نصب و اجرا روی Ubuntu
 
-برای نصب و اجرای Deployer روی Ubuntu، این دستورات را وارد کنید:
+ابتدا ابزار `git` را نصب کنید:
 
 ```bash
 sudo apt update
@@ -179,7 +167,7 @@ git clone https://github.com/LoaTary/NtLfyIraniCore-Deployer.git
 cd NtLfyIraniCore-Deployer
 ```
 
-سطح دسترسی اجرا بدهید:
+اجازه اجرا بدهید:
 
 ```bash
 chmod +x ntlfy-deployer.sh
@@ -191,13 +179,19 @@ chmod +x ntlfy-deployer.sh
 sudo ./ntlfy-deployer.sh
 ```
 
-اگر نام ریپازیتوری شما متفاوت است، فقط آدرس `git clone` را با آدرس ریپازیتوری خودتان جایگزین کنید.
+### اجرای سریع
+
+```bash
+sudo apt update && sudo apt install -y git && git clone https://github.com/LoaTary/NtLfyIraniCore-Deployer.git && cd NtLfyIraniCore-Deployer && chmod +x ntlfy-deployer.sh && sudo ./ntlfy-deployer.sh
+```
+
+اگر نام ریپازیتوری شما متفاوت است، آدرس `git clone` را با آدرس ریپازیتوری خودتان جایگزین کنید.
 
 ---
 
 ## ⚙️ مقادیر موردنیاز هنگام اجرا
 
-اسکریپت هنگام اجرا فقط ۴ مقدار از شما می‌خواهد:
+اسکریپت هنگام اجرا این ۴ مقدار را از شما می‌پرسد:
 
 ```text
 Upstream Domain
@@ -206,27 +200,36 @@ Timeout MS
 Netlify Token
 ```
 
+نمونه ورودی پیشنهادی:
+
+```text
+Upstream Domain: https://app.titus.ir:443
+Access Path: /titus
+Timeout MS: 120000
+Netlify Token: nfp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+```
+
 ---
 
 ## 🌐 Upstream Domain
 
-`Upstream Domain` آدرس سرور اصلی است؛ یعنی مقصدی که Netlify درخواست‌ها را به آن منتقل می‌کند.
+`Upstream Domain` آدرس سرور اصلی است؛ یعنی مقصدی که Netlify باید درخواست‌ها را به آن منتقل کند.
 
-نمونه پیشنهادی:
+نمونه:
 
 ```text
 https://app.titus.ir:443
 ```
 
-اگر `https://` را وارد نکنید، اسکریپت به‌صورت خودکار آن را اضافه می‌کند.
-
-نمونه‌های معتبر:
+نمونه‌های قابل قبول:
 
 ```text
 https://app.titus.ir:443
 app.titus.ir:443
 https://api.example.com
 ```
+
+اگر `https://` را وارد نکنید، اسکریپت به‌صورت خودکار آن را اضافه می‌کند.
 
 ---
 
@@ -242,7 +245,7 @@ https://api.example.com
 
 اگر `/` ابتدای مسیر را وارد نکنید، اسکریپت خودش آن را اضافه می‌کند.
 
-جریان نهایی با این مقدار:
+نمونه جریان:
 
 ```text
 Netlify URL:
@@ -252,13 +255,13 @@ Upstream URL:
 https://app.titus.ir:443/titus
 ```
 
-مقدار `/` برای Access Path مجاز نیست؛ چون باعث باز شدن کل مسیرهای upstream می‌شود.
+مقدار `/` برای Access Path مجاز نیست.
 
 ---
 
 ## ⏱️ Timeout MS
 
-`Timeout MS` زمان انتظار برای پاسخ upstream برحسب میلی‌ثانیه است.
+`Timeout MS` مدت‌زمان انتظار برای پاسخ upstream برحسب میلی‌ثانیه است.
 
 مقدار پیشنهادی:
 
@@ -284,7 +287,7 @@ https://app.titus.ir:443/titus
 
 `Netlify Token` همان Personal Access Token است که از پنل Netlify دریافت می‌کنید.
 
-این توکن برای کارهای زیر استفاده می‌شود:
+این مقدار برای انجام این عملیات استفاده می‌شود:
 
 - ساخت سایت Netlify
 - ثبت Environment Variables
@@ -299,22 +302,9 @@ nfp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
 
 ---
 
-## 🧪 نمونه اجرای کامل
+## 🚀 خروجی نهایی
 
-بعد از اجرای اسکریپت، مقادیر را به این شکل وارد کنید:
-
-```text
-Upstream Domain: https://app.titus.ir:443
-Access Path: /titus
-Timeout MS: 120000
-Netlify Token: nfp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxx
-```
-
----
-
-## ✅ خروجی نهایی
-
-در پایان، خروجی مشابه نمونه زیر نمایش داده می‌شود:
+بعد از پایان دپلوی، خروجی مشابه نمونه زیر نمایش داده می‌شود:
 
 ```text
 DEPLOY DONE
@@ -340,7 +330,7 @@ https://titus-relay-xxxxxxxx.netlify.app/titus
 https://app.titus.ir:443/titus
 ```
 
-اگر upstream شما روی همین مسیر فعال باشد، پاسخ از سرور اصلی برمی‌گردد.
+اگر upstream روی همین مسیر فعال باشد، پاسخ از سرور اصلی برمی‌گردد.
 
 ---
 
@@ -356,7 +346,7 @@ letsencrypt.org
 
 ---
 
-## 📄 فایل‌های لاگ
+## 📄 لاگ‌ها
 
 اسکریپت دو فایل لاگ ایجاد می‌کند:
 
@@ -376,6 +366,38 @@ tail -n 120 /root/ntlfy-deployer.log
 ```bash
 tail -n 120 /root/ntlfy-deploy.log
 ```
+
+---
+
+## 🧾 متغیرهای ثبت‌شده در Netlify
+
+اسکریپت این متغیرها را روی سایت Netlify ثبت می‌کند:
+
+```text
+UPSTREAM_BASE
+ACCESS_PATH
+REQUEST_TIMEOUT_MS
+```
+
+این مقدارها توسط Edge Function استفاده می‌شوند.
+
+---
+
+## 🔎 تست دستی
+
+بعد از دپلوی می‌توانید Relay URL را تست کنید:
+
+```bash
+curl -k -i https://titus-relay-xxxxxxxx.netlify.app/titus
+```
+
+برای تست مستقیم upstream:
+
+```bash
+curl -k -i https://app.titus.ir:443/titus
+```
+
+اگر خروجی هر دو مشابه باشد، Relay مسیر را درست منتقل می‌کند.
 
 ---
 
@@ -439,35 +461,6 @@ curl -k -i https://app.titus.ir:443/titus
 
 ---
 
-## 🔎 تست دستی
-
-بعد از دپلوی می‌توانید Relay URL را تست کنید:
-
-```bash
-curl -k -i https://titus-relay-xxxxxxxx.netlify.app/titus
-```
-
-برای تست مستقیم upstream:
-
-```bash
-curl -k -i https://app.titus.ir:443/titus
-```
-
-اگر خروجی هر دو مشابه باشد، Relay مسیر را درست منتقل می‌کند.
-
----
-
-## 🔐 نکات امنیتی
-
-- توکن Netlify را داخل ریپازیتوری قرار ندهید.
-- توکن را در اختیار افراد دیگر نگذارید.
-- بعد از تست‌های عمومی، توکن استفاده‌شده را حذف یا Regenerate کنید.
-- برای هر پروژه بهتر است یک توکن جداگانه بسازید.
-- اگر توکن لو رفت، سریع آن را از Netlify حذف کنید.
-- فایل‌های لاگ را قبل از انتشار عمومی بررسی کنید.
-
----
-
 ## 🧹 حذف سایت از Netlify
 
 برای حذف سایت ساخته‌شده:
@@ -499,20 +492,6 @@ titus-relay-a1b2c3d4
 ```
 
 اگر می‌خواهید روی سایت قبلی Redeploy کنید، باید اسکریپت را تغییر دهید و `SITE_ID` همان پروژه را وارد کنید.
-
----
-
-## 🧾 متغیرهای ثبت‌شده در Netlify
-
-اسکریپت این متغیرها را روی سایت Netlify ثبت می‌کند:
-
-```text
-UPSTREAM_BASE
-ACCESS_PATH
-REQUEST_TIMEOUT_MS
-```
-
-این مقدارها در Edge Function استفاده می‌شوند.
 
 ---
 
